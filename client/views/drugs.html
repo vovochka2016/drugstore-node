@@ -1,18 +1,18 @@
-<div class="panel panel-default" ng-init="getBooks()">
+<div class="panel panel-default" ng-init="getdrugs()">
   <div class="panel-heading">
-    <h3 class="panel-title">Latest Books</h3>
+    <h3 class="panel-title">Latest drugs</h3>
   </div>
   <div class="panel-body">
     <div class="row">
-    	<div ng-repeat="book in books">
+    	<div ng-repeat="drug in drugs">
     		<div class="col-md-6">
     			<div class="col-md-6">
-    				<h4>{{book.title}}</h4>
-    				<p>{{book.description}}</p>
-    				<a class="btn btn-primary" href="#/books/details/{{book._id}}">View Details</a>
+    				<h4>{{drug.title}}</h4>
+    				<p>{{drug.description}}</p>
+    				<a class="btn btn-primary" href="#/drugs/details/{{drug._id}}">View Details</a>
     			</div>
     			<div class="col-md-6">
-    				<img class="thumbnail" src="{{book.image_url}}">
+    				<img class="thumbnail" src="{{drug.image_url}}">
     			</div>
     		</div>
     	</div>
