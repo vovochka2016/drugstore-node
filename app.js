@@ -6,103 +6,103 @@ const mongoose = require('mongoose');
 app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.json());
 
-Genre =require('./models/genre');
-Book =require('./models/book');
+medicine =require('./models/medicine');
+drug =require('./models/drug');
 
 // Connect to Mongoose
-mongoose.connect('mongodb://localhost/bookstore');
+mongoose.connect('mongodb://localhost/drugstore');
 var db = mongoose.connection;
 
 app.get('/', (req, res) => {
-	res.send('Please use /api/books or /api/genres');
+	res.send('Please use /api/drugs or /api/medicines');
 });
 
-app.get('/api/genres', (req, res) => {
-	Genre.getGenres((err, genres) => {
+app.get('/api/medicines', (req, res) => {
+	medicine.getmedicines((err, medicines) => {
 		if(err){
 			throw err;
 		}
-		res.json(genres);
+		res.json(medicines);
 	});
 });
 
-app.post('/api/genres', (req, res) => {
-	var genre = req.body;
-	Genre.addGenre(genre, (err, genre) => {
+app.post('/api/medicines', (req, res) => {
+	var medicine = req.body;
+	medicine.addmedicine(medicine, (err, medicine) => {
 		if(err){
 			throw err;
 		}
-		res.json(genre);
+		res.json(medicine);
 	});
 });
 
-app.put('/api/genres/:_id', (req, res) => {
+app.put('/api/medicines/:_id', (req, res) => {
 	var id = req.params._id;
-	var genre = req.body;
-	Genre.updateGenre(id, genre, {}, (err, genre) => {
+	var medicine = req.body;
+	medicine.updatemedicine(id, medicine, {}, (err, medicine) => {
 		if(err){
 			throw err;
 		}
-		res.json(genre);
+		res.json(medicine);
 	});
 });
 
-app.delete('/api/genres/:_id', (req, res) => {
+app.delete('/api/medicines/:_id', (req, res) => {
 	var id = req.params._id;
-	Genre.removeGenre(id, (err, genre) => {
+	medicine.removemedicine(id, (err, medicine) => {
 		if(err){
 			throw err;
 		}
-		res.json(genre);
+		res.json(medicine);
 	});
 });
 
-app.get('/api/books', (req, res) => {
-	Book.getBooks((err, books) => {
+app.get('/api/drugs', (req, res) => {
+	drug.getdrugs((err, drugs) => {
 		if(err){
 			throw err;
 		}
-		res.json(books);
+		res.json(drugs);
 	});
 });
 
-app.get('/api/books/:_id', (req, res) => {
-	Book.getBookById(req.params._id, (err, book) => {
+app.get('/api/drugs/:_id', (req, res) => {
+	drug.getdrugById(req.params._id, (err, drug) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(drug);
 	});
 });
 
-app.post('/api/books', (req, res) => {
-	var book = req.body;
-	Book.addBook(book, (err, book) => {
+app.post('/api/drugs', (req, res) => {
+	var drug = req.body;
+	drug.adddrug(drug, (err, drug) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(drug);
 	});
 });
 
-app.put('/api/books/:_id', (req, res) => {
+app.put('/api/drugs/:_id', (req, res) => {
 	var id = req.params._id;
-	var book = req.body;
-	Book.updateBook(id, book, {}, (err, book) => {
+	var drug = req.body;
+	drug.updatedrug(id, drug, {}, (err, drug) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(drug);
 	});
 });
 
-app.delete('/api/books/:_id', (req, res) => {
+app.delete('/api/drugs/:_id', (req, res) => {
 	var id = req.params._id;
-	Book.removeBook(id, (err, book) => {
+	drug.removedrug(id, (err, drug) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(drug);
 	});
 });
 
