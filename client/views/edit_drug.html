@@ -1,0 +1,51 @@
+<a href="#/drugs">Go Back</a>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Edit drug</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+      <form ng-submit="updatedrug()" ng-init="getdrug()">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" ng-model="drug.title" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <label>medicine</label>
+          <select ng-model="drug.medicine" class="form-control">
+            <option value="Suspense">Suspense</option>
+            <option value="Drama">Drama</option>
+            <option value="Romance">Romance</option>
+            <option value="NonFiction">NonFiction</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>producer</label>
+          <input type="text" class="form-control" ng-model="drug.producer" placeholder="producer">
+        </div>
+        
+        <div class="form-group">
+          <label>prices</label>
+          <input type="text" class="form-control" ng-model="drug.prices" placeholder="prices">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" ng-model="drug.description" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="text" class="form-control" ng-model="drug.image_url" placeholder="Image URL">
+        </div>
+        <div class="form-group">
+          <label>Buy URL</label>
+          <input type="text" class="form-control" ng-model="drug.buy_url" placeholder="Buy URL">
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
